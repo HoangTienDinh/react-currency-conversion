@@ -32,6 +32,24 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    if (fromCurrency != null && toCurrency != null) {
+      fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
+        .then((res) => res.json())
+        .then((data) => setExchangeRate(data.rates[toCurrency]));
+    }
+  }, [fromCurrency, toCurrency]);
+
+  function handleFromAmountChange(e) {
+    setAmount(e.target.value);
+    setAmountInFromCurrency(true);
+  }
+
+  function handleToAmountChange(e) {
+    setAmount(e.target.value);
+    setAmountInFromCurrency(false);
+  }
+
   return (
     <>
       <div className="App">Convert</div>
@@ -40,6 +58,7 @@ function App() {
         selectedCurrency={fromCurrency}
         onChangeCurrency={(e) => setFromCurrency(e.target.value)}
         amount={fromAmount}
+        onChangeAmount={handleFromAmountChange}
       />
       <div className="equals">=</div>
       <CurrencyRow
@@ -47,6 +66,7 @@ function App() {
         selectedCurrency={toCurrency}
         onChangeCurrency={(e) => setToCurrency(e.target.value)}
         amount={toAmount}
+        onChangeAmount={handleToAmountChange}
       />
     </>
   );
