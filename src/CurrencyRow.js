@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
 
-export default function CurrencyRow() {
-    return (
-        <div>
-            <input type='number' className='input' />
-            <select>
-                <option value="hi">Hi</option>
-            </select>
-        </div>
-    )
+export default function CurrencyRow(props) {
+  const { currencyOptions } = props;
+  return (
+    <div>
+      <input type="number" className="input" />
+      <select>
+        {currencyOptions.map((option) => (
+          <option key={option} value="hi">{option}</option>
+        ))}
+      </select>
+    </div>
+  );
 }
