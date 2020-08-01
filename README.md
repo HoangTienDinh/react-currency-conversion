@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Currency Converter
 A quick app built to have a dynamic currency changer.
 
