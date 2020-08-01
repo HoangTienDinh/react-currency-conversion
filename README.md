@@ -3,6 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Currency Converter
 A quick app built to have a dynamic currency changer.
 
+![App Demo](https://github.com/HoangTienDinh/react-currency-conversion/blob/master/src/images/currency-conversion.gif)
+
 ### Getting Started
 
 Install all dependencies with ```npm install```
